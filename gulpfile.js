@@ -12,5 +12,15 @@ gulp.task('scripts', function(){
         .pipe(uglify())
         .pipe(gulp.dest('build/js'));
 });
+var sass = require('gulp-ruby-sass');
+gulp.task('sass', function(){
+    return sass('src/scss/style.scss', {style: 'compressed'})
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('build/css'));
+});
 
-gulp.task('default', ['scripts']);
+gulp.task('watch', function(){
+    gulp.watch('src/js/*.js', ['scripts']);
+    gulp.watch('src/scss/*.scss', ['sass']);
+});
+gulp.task('default', ['scripts','sass','watch']);
