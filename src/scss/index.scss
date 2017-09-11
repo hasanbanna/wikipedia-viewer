@@ -1,6 +1,7 @@
 $font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-$bgc: 			#34495e;
+$primary-color: #F38630;
+$bgc: 			#69D2E7;
+$highlight-color: #F38630;
 
 body {
   font: 100% $font-stack;
@@ -8,13 +9,12 @@ body {
   background-color: $bgc;
 }
 a{
-	color:white;
+	color:$primary-color;
+	text-decoration: none;	
 }
 .container{
-	position: fixed;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+	width:70%;
+	margin:0 auto;
   	text-align: center;
 }
 .random-article{
@@ -44,5 +44,16 @@ a{
 	&:hover{
 		color:#000;
 		cursor:pointer;
+	}
+}
+#article{
+	text-align: left;
+	background-color: #E0E4CC;
+	padding:5px;
+	min-height: 60px;
+	color:black;
+	
+	&:hover{
+		border-left: 5px solid $highlight-color;
 	}
 }
